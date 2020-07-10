@@ -11,8 +11,8 @@ function Product(props) {
                     <p> ${props.info.price} </p>
                 </div>
                 <div className="product-buttons">
-                    <button> Edit </button>
-                    <button onClick={props.deleteInventory}> Delete </button>
+                    <button onClick={() => props.toggleEdit(props.info.id)}> Edit </button>
+                    <button onClick={() => props.deleteInventory(props.info.id)}> Delete </button>
                 </div>
             </div>
         </div>

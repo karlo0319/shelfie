@@ -1,2 +1,2 @@
 DELETE FROM inventory
-where id = ${id};
+where id = $1;

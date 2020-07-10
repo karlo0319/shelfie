@@ -19,6 +19,7 @@ massive({
 
 //Endpoints
 app.get('/api/inventory', ctrl.getInventory);
+app.get('/api/inventory/:id', ctrl.getInventoryById)
 app.post('/api/inventory', ctrl.createInventory);
 app.put('/api/inventory/:id', ctrl.updateInventory);
 app.delete('/api/inventory/:id', ctrl.deleteInventory);

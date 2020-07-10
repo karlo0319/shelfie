@@ -7,6 +7,15 @@ module.exports = {
         .catch(err => res.status(500).send(err))
     },
 
+    getInventoryById: (req, res) => {
+        const {id} = req.params
+        const db = req.app.get('db');
+
+        db.get_inventory_id(id)
+        .then(product => res.status(200).send(product))
+        .catch(err => res.status(500).send(err))
+    },
+
     createInventory: (req, res) => {
         const {name, price, image} = req.body,
             db = req.app.get('db');
