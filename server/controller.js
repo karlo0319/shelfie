@@ -26,13 +26,14 @@ module.exports = {
     },
 
     updateInventory: (req, res) => {
+        console.log('hit')
         const {id} = req.params,
         {name, price, image} = req.body,
         db = req.app.get('db');
 
-        db.update_inventory({name, price, image})
+        db.update_inventory({name, price, image, id})
         .then(() => res.sendStatus(200))
-        .cathc(err => res.status(500).send(err))
+        .catch(err => res.status(500).send(err))
     },
     
     deleteInventory: (req, res) => {

@@ -52,8 +52,9 @@ class Form extends Component {
     }
 
     saveChanges = (id) => {
-        axios.post(`/api/inventory/${id}`, {name: this.state.productInput, price: this.state.priceInput, image: this.state.imageInput })
-            .then(() => this.props.getProduct(id), this.handleCancel())
+        console.log(id)
+        axios.put(`/api/inventory/${id}`, {name: this.state.productInput, price: this.state.priceInput, image: this.state.imageInput })
+            .then(() => this.props.getInventory(), this.handleCancel())
             .catch(err => console.log(err))
     }
 
@@ -91,7 +92,7 @@ class Form extends Component {
                     ?
                     <button onClick={this.addInventory}> Add to Inventory </button>
                     :
-                    <button onClick={this.saveChanges}> Save Changes </button>
+                    <button onClick={() => this.saveChanges(this.state.selectedProductID)}> Save Changes </button>
                     }
                 </div>
             </div>
